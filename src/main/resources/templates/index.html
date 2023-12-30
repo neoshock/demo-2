@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenido</title>
+    <title>Listado de Marcas de Computadoras</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,12 +28,46 @@
             font-size: 2em;
             color: #333;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Bienvenido</h1>
-        <p>Gracias por visitarnos.</p>
+        <h1>Listado de Marcas de Computadoras</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre de la Marca</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="brand : ${computerBrands}">
+                    <td th:text="${brand.id}"></td>
+                    <td th:text="${brand.brandName}"></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
